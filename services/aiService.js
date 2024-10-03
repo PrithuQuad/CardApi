@@ -53,7 +53,7 @@ const getResultFromGemini = async (file) => {
 
     console.log(jsonObject);
     const ans={
-        "phoneNumber": parsePhoneNumber(jsonObject.number),
+        "phoneNumber":jsonObject.number,
         "email": jsonObject.email,
         "address": jsonObject.Address,
         "companyName": jsonObject.companyName,
@@ -66,7 +66,8 @@ const getResultFromGemini = async (file) => {
   } catch (error) {
     // console.log(error[0].safetyRatings[0]);
     let response = error.response;
-    console.error('This is error block-->',response.candidates[0].safetyRatings);
+    console.log(error);
+    // console.error('This is error block-->',response?.candidates[0]?.safetyRatings);
     return new ErrorHandler(error.message, 500, true);
   }
 };

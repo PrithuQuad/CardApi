@@ -8,7 +8,7 @@ class AiController {
             const result =await getResultFromGemini(req.files[0]);
             const imageBuffer = req.files[0].buffer;
             let config = {
-                output: { format: "image/png" },
+                output: { format: "image/jpeg" },
             };
             const blob = new Blob([imageBuffer], { type: "image/jpeg" });
         
